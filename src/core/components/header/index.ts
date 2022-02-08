@@ -1,17 +1,17 @@
 import Component from '../../templates/components';
-import { PageIds } from '../../../pages/app';
+import { EPageIds } from '../../../types';
 
 const Buttons = [
   {
-    id: PageIds.mainPage,
+    id: EPageIds.mainPage,
     text: 'Main Page',
   },
   {
-    id: PageIds.bookPage,
+    id: EPageIds.bookPage,
     text: 'Book Page',
   },
   {
-    id: PageIds.gamesPage,
+    id: EPageIds.gamesPage,
     text: 'Games Page',
   },
 ];
@@ -23,6 +23,7 @@ class Header extends Component {
 
   renderPageButtons = (): void => {
     const pageButtons = document.createElement('div');
+    pageButtons.classList.add('header-nav');
     Buttons.forEach((button) => {
       const buttonHTML = document.createElement('a');
       buttonHTML.href = `#${button.id}`;

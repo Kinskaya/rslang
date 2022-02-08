@@ -3,12 +3,7 @@ import MainPage from '../main';
 import SettingsPage from '../book';
 import StatisticsPage from '../games';
 import Header from '../../core/components/header';
-
-export const enum PageIds {
-  mainPage = 'main-page',
-  bookPage = 'book-page',
-  gamesPage = 'games-page',
-}
+import { EPageIds } from '../../types';
 
 class App {
   private static container: HTMLElement = document.body;
@@ -24,17 +19,18 @@ class App {
     }
     let page: Page | null = null;
 
-    if (idPage === PageIds.mainPage) {
+    if (idPage === EPageIds.mainPage) {
       page = new MainPage(idPage);
-    } else if (idPage === PageIds.bookPage) {
+    } else if (idPage === EPageIds.bookPage) {
       page = new SettingsPage(idPage);
-    } else if (idPage === PageIds.gamesPage) {
+    } else if (idPage === EPageIds.gamesPage) {
       page = new StatisticsPage(idPage);
     }
 
     if (page) {
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
+      pageHTML.classList.add('page', idPage);
       App.container.append(pageHTML);
     }
   }
