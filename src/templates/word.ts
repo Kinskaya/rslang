@@ -1,10 +1,16 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable @typescript-eslint/quotes */
 /* eslint-disable @typescript-eslint/comma-dangle */
 import { BASE_URL } from "../consts";
 import { TWord } from "../types";
 import { getAllWords } from "../api/getAllWords";
+import { state } from "../state";
 
 export const word = async (): Promise<HTMLDivElement> => {
-  const data = await getAllWords();
+  // await getAllWords(3, 0);
+  await getAllWords();
+  const data = state.words;
 
   const dataWords = document.createElement("div");
   dataWords.classList.add("data-words");
@@ -17,6 +23,8 @@ export const word = async (): Promise<HTMLDivElement> => {
     const blockWord = document.createElement("div");
     blockWord.classList.add("block");
 
+    let source: string = "";
+
     const mp3Word = document.createElement("button");
     mp3Word.classList.add("btn");
     mp3Word.innerHTML = '<i class="fa fa-play"></i>';
@@ -26,7 +34,9 @@ export const word = async (): Promise<HTMLDivElement> => {
     mp3Word.append(audioWord);
 
     mp3Word.addEventListener("click", () => {
-      console.log("mp3Word click");
+      source = `${BASE_URL}/${el.audio}`;
+      const htmlaudio: HTMLAudioElement = new Audio(source);
+      htmlaudio.play();
     });
 
     const wordWord = document.createElement("p");
@@ -52,7 +62,9 @@ export const word = async (): Promise<HTMLDivElement> => {
     mp3Meaning.append(audioMeaning);
 
     mp3Meaning.addEventListener("click", () => {
-      console.log("mp3Meaning click");
+      source = `${BASE_URL}/${el.audioMeaning}`;
+      const htmlaudio: HTMLAudioElement = new Audio(source);
+      htmlaudio.play();
     });
 
     const wordMeaning = document.createElement("p");
@@ -72,11 +84,13 @@ export const word = async (): Promise<HTMLDivElement> => {
     mp3Example.append(audioExample);
 
     mp3Example.addEventListener("click", () => {
-      console.log("mp3Example click");
+      source = `${BASE_URL}/${el.audioExample}`;
+      const htmlaudio: HTMLAudioElement = new Audio(source);
+      htmlaudio.play();
     });
 
     const wordExample = document.createElement("p");
-    wordExample.innerHTML = el.textMeaning;
+    wordExample.innerHTML = el.textExample;
 
     blockExample.append(mp3Example, wordExample);
 
@@ -97,8 +111,8 @@ export const word = async (): Promise<HTMLDivElement> => {
       wordTranscription,
       wordTranslate,
       blockMeaning,
-      blockExample,
       wordMeaningTranslate,
+      blockExample,
       wordExampleTranslate
     );
     dataWords.append(wordCard);
