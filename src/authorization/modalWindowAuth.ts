@@ -42,12 +42,17 @@ const preLoginUser = () => {
   const user = { email: authEmailInput.value, password: authPassInput.value };
   console.log(user);
   loginUser(user);
+  authEmailInput.value = '';
+  authPassInput.value = '';
 };
 
 const preCreateUser = () => {
   const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
   console.log(user);
   createUser(user);
+  authNicknameInput.value = '';
+  authEmailInput.value = '';
+  authPassInput.value = '';
 };
 
 authSubmitButton.addEventListener('click', preLoginUser);

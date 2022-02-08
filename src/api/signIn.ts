@@ -13,7 +13,4 @@ export const loginUser = async (user:{ email:string, password:string }):Promise<
   state.token = content.token;
   localStorage.setItem('token', state.token);
   state.isAuthorizet = true;
-  localStorage.setItem('isAuthorizet', String(state.isAuthorizet));
-  console.log(state.token);
-  console.log(state.isAuthorizet);
 };
