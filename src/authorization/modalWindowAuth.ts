@@ -1,16 +1,21 @@
-import { loginUser, createUser } from '../api/api';
+import { loginUser, createUser } from '../api';
 
 const modalBackground = document.createElement('div');
 const authSubmitButton = document.createElement('button');
 const regSubmitButton = document.createElement('button');
 const authEmailInput = document.createElement('input');
+authEmailInput.placeholder = 'email';
 const authPassInput = document.createElement('input');
+authPassInput.placeholder = 'password';
+const authNicknameInput = document.createElement('input');
+authNicknameInput.classList.add('authNicknameInput');
+authNicknameInput.placeholder = 'nickname';
 const exitAuthModal = document.createElement('button');
 modalBackground.classList.add('modalBackground');
 const modalContainer = document.createElement('div');
 modalContainer.classList.add('modalContainer');
 exitAuthModal.classList.add('exitAuthModal');
-exitAuthModal.textContent = 'Выйти';
+exitAuthModal.textContent = 'Закрыть';
 authPassInput.classList.add('authPassInput');
 authSubmitButton.classList.add('authSubmitButton');
 authSubmitButton.textContent = 'Войти';
@@ -21,6 +26,7 @@ modalBackground.insertAdjacentElement('beforeend', modalContainer);
 modalContainer.insertAdjacentElement('beforeend', exitAuthModal);
 modalContainer.insertAdjacentElement('beforeend', authEmailInput);
 modalContainer.insertAdjacentElement('beforeend', authPassInput);
+modalContainer.insertAdjacentElement('beforeend', authNicknameInput);
 modalContainer.insertAdjacentElement('beforeend', authSubmitButton);
 modalContainer.insertAdjacentElement('beforeend', regSubmitButton);
 
@@ -33,11 +39,15 @@ const openModalAuth = () => {
 };
 
 const preLoginUser = () => {
-  loginUser({ email: authEmailInput.value, password: authPassInput.value });
+  const user = { email: authEmailInput.value, password: authPassInput.value };
+  console.log(user);
+  loginUser(user);
 };
 
 const preCreateUser = () => {
-  createUser();
+  const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
+  console.log(user);
+  createUser(user);
 };
 
 authSubmitButton.addEventListener('click', preLoginUser);
