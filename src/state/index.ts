@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/quotes */
-import { TState } from "../types";
-
-export const state: TState = {
+export const state: { words: []; token: string; isAuthorizet: boolean } = {
   words: [],
   token: "",
+  isAuthorizet: false,
 };

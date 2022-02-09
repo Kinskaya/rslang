@@ -1,27 +1,17 @@
-/* eslint-disable @typescript-eslint/quotes */
-/* eslint-disable @typescript-eslint/comma-dangle */
-// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-import { BASE_URL } from "../consts";
-import { TUser } from "../types";
-
-export const createUser = async (user: TUser) => {
-  const userEmail = user.email;
-  const userPassword = user.password;
-
-  const response = await fetch(`${BASE_URL}/users`, {
+export const createUser = async (user: {
+  name: string;
+  email: string;
+  password: string;
+}): Promise<void> => {
+  const rawResponse = await fetch("http://localhost:9000/users", {
     method: "POST",
     headers: {
+      Accept: "application/json",
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      email: userEmail,
-      password: userPassword,
-    }),
+    body: JSON.stringify(user),
   });
+  const content = await rawResponse.json();
 
-  const result = await response.json();
-  console.log(result.id);
-  console.log(result);
-
-  return result;
+  console.log(content);
 };
