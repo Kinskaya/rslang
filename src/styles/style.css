@@ -1,0 +1,40 @@
+p {
+  font-size: 1.5em;
+  margin: 5px 0;
+}
+
+.data-words {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+.word-card {
+  width: 30%;
+  border: 4px double rgb(0, 195, 255);
+  margin: 3% 0;
+  text-align: center;
+  padding: 0 1em;
+}
+
+.image-word {
+  width: 100%;
+}
+
+.block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+}
+.btn {
+  min-width: 2em;
+  min-height: 2em;
+  cursor: pointer;
+}
+
+.word {
+  font-weight: bold;
+}

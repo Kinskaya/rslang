@@ -1,18 +1,18 @@
-import Component from '../../templates/components';
-import { EPageIds } from '../../../types';
+import Component from "../../templates/components";
+import { EPageIds } from "../../../types";
 
 const Buttons = [
   {
     id: EPageIds.mainPage,
-    text: 'Main Page',
+    text: "Main Page",
   },
   {
     id: EPageIds.bookPage,
-    text: 'Book Page',
+    text: "Book Page",
   },
   {
     id: EPageIds.gamesPage,
-    text: 'Games Page',
+    text: "Games Page",
   },
 ];
 
@@ -22,10 +22,10 @@ class Header extends Component {
   }
 
   renderPageButtons = (): void => {
-    const pageButtons = document.createElement('div');
-    pageButtons.classList.add('header-nav');
+    const pageButtons = document.createElement("div");
+    pageButtons.classList.add("header-nav");
     Buttons.forEach((button) => {
-      const buttonHTML = document.createElement('a');
+      const buttonHTML = document.createElement("a");
       buttonHTML.href = `#${button.id}`;
       buttonHTML.innerText = button.text;
       pageButtons.append(buttonHTML);
