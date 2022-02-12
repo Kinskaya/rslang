@@ -14,6 +14,10 @@ body{
   justify-content: space-evenly;
 }
 
+.authLogo{
+  cursor: pointer;
+}
+
 .modalBackground {
   margin: 0 auto;
   display: none;

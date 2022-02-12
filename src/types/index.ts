@@ -28,4 +28,7 @@ export type TUser = {
 export type TState = {
   words: [];
   token?: string;
+  name:string;
+  isAuthorizet:boolean;
+  id:string;
 };
