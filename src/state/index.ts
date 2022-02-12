@@ -1,4 +1,6 @@
-export const state:{ token:string, isAuthorizet:boolean, name:string, id:string } = {
+import { TState } from '../types/index';
+
+export const state: TState = {
   token: '',
   isAuthorizet: false,
   name: '',
