@@ -30,5 +30,9 @@ export type TState = {
   token?: string;
   name:string;
   id:string;
+<<<<<<< HEAD
   isAuthorized:boolean,
+=======
+  isAuthorizet:boolean,
+>>>>>>> d2e9bc190e774db543392083511ece1f8520fb5b
 };
