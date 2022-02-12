@@ -23,7 +23,9 @@ const authorization = (): void => {
 
 export const login = ():void => {
   authName.textContent = state.name;
-  if (state.isAuthorizet === true) logoutButton.style.display = 'block';
+  if (state.isAuthorizet === true) {
+    logoutButton.style.display = 'block';
+  }
 };
 
 export const logout = ():void => {
