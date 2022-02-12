@@ -1,7 +1,7 @@
 export const enum EPageIds {
-  mainPage = "main-page",
-  bookPage = "book-page",
-  gamesPage = "games-page",
+  mainPage = 'main-page',
+  bookPage = 'book-page',
+  gamesPage = 'games-page',
 }
 export type TWord = {
   id: string;

@@ -1,5 +1,5 @@
 export const state: { words: []; token: string; isAuthorizet: boolean } = {
   words: [],
-  token: "",
+  token: '',
   isAuthorizet: false,
 };
