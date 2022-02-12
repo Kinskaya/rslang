@@ -1,40 +1,23 @@
 import Component from '../../templates/components';
 import { EPageIds } from '../../../types';
 
-const Buttons = [
-  {
-    id: EPageIds.mainPage,
-    text: 'RS Lang',
-  },
-/*  {
-    id: EPageIds.bookPage,
-    text: "Book Page",
-  },
-  {
-    id: EPageIds.gamesPage,
-    text: "Games Page",
-  }, */
-];
-
 class Header extends Component {
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
-  renderPageButtons = (): void => {
+  renderAppName = (): void => {
     const pageButtons = document.createElement('div');
     pageButtons.classList.add('header-nav');
-    Buttons.forEach((button) => {
-      const buttonHTML = document.createElement('a');
-      buttonHTML.href = `#${button.id}`;
-      buttonHTML.innerText = button.text;
-      pageButtons.append(buttonHTML);
-    });
+    const buttonHTML = document.createElement('a');
+    buttonHTML.href = EPageIds.mainPage;
+    buttonHTML.innerText = 'RS Lang';
+    pageButtons.append(buttonHTML);
     this.container.append(pageButtons);
   };
 
   render = (): HTMLElement => {
-    this.renderPageButtons();
+    this.renderAppName();
     return this.container;
   };
 }

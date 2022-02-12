@@ -1,23 +1,5 @@
 import Component from '../../templates/components';
-import { EPageIds } from '../../../types';
-
-const Buttons = [
-  {
-    id: EPageIds.mainPage,
-    text: 'Главная',
-    icon: '<i class="fa fa-fw fa-th-large"></i>',
-  },
-  {
-    id: EPageIds.bookPage,
-    text: 'Учебник',
-    icon: '<i class="fa fa-fw fa-book"></i>',
-  },
-  {
-    id: EPageIds.gamesPage,
-    text: 'Игры',
-    icon: '<i class="fa fa-fw fa-gamepad"></i>',
-  },
-];
+import { MenuButtons } from '../../../consts';
 
 class Menu extends Component {
   constructor(tagName: string, className: string) {
@@ -27,7 +9,7 @@ class Menu extends Component {
   renderPageButtons = (): void => {
     const pageButtons = document.createElement('div');
     pageButtons.classList.add('sidebar');
-    Buttons.forEach((button) => {
+    MenuButtons.forEach((button) => {
       const buttonHTML = document.createElement('a');
       buttonHTML.href = `#${button.id}`;
       buttonHTML.innerHTML = `${button.icon} ${button.text}`;
