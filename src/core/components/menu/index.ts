@@ -1,25 +1,25 @@
 import Component from '../../templates/components';
-import { MenuButtons } from '../../../consts';
+import { menuLinksData } from '../../../consts';
 
 class Menu extends Component {
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
-  renderPageButtons = (): void => {
-    const pageButtons = document.createElement('div');
-    pageButtons.classList.add('sidebar');
-    MenuButtons.forEach((button) => {
+  renderLinksData = (): void => {
+    const menuLinks = document.createElement('div');
+    menuLinks.classList.add('sidebar');
+    menuLinksData.forEach((link) => {
       const buttonHTML = document.createElement('a');
-      buttonHTML.href = `#${button.id}`;
-      buttonHTML.innerHTML = `${button.icon} ${button.text}`;
-      pageButtons.append(buttonHTML);
+      buttonHTML.href = `#${link.id}`;
+      buttonHTML.innerHTML = `${link.icon} ${link.text}`;
+      menuLinks.append(buttonHTML);
     });
-    this.container.append(pageButtons);
+    this.container.append(menuLinks);
   };
 
   render = (): HTMLElement => {
-    this.renderPageButtons();
+    this.renderLinksData();
     return this.container;
   };
 }

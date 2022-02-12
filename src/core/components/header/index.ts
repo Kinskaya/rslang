@@ -6,18 +6,18 @@ class Header extends Component {
     super(tagName, className);
   }
 
-  renderAppName = (): void => {
-    const pageButtons = document.createElement('div');
-    pageButtons.classList.add('header-nav');
-    const buttonHTML = document.createElement('a');
-    buttonHTML.href = EPageIds.mainPage;
-    buttonHTML.innerText = 'RS Lang';
-    pageButtons.append(buttonHTML);
-    this.container.append(pageButtons);
+  renderHeaderLinks = (): void => {
+    const headerLinks = document.createElement('div');
+    headerLinks.classList.add('header-nav');
+    const link = document.createElement('a');
+    link.href = `#${EPageIds.mainPage}`;
+    link.innerText = 'RS Lang';
+    headerLinks.append(link);
+    this.container.append(headerLinks);
   };
 
   render = (): HTMLElement => {
-    this.renderAppName();
+    this.renderHeaderLinks();
     return this.container;
   };
 }

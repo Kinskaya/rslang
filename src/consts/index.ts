@@ -2,7 +2,7 @@ import { EPageIds } from '../types';
 
 export const BASE_URL = 'http://127.0.0.1:9000';
 
-export const MenuButtons = [
+export const menuLinksData = [
     {
         id: EPageIds.mainPage,
         text: 'Главная',
