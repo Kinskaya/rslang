@@ -38,12 +38,12 @@ class App {
     }
   }
 
-  private enableRouteChange() {
+  private enableRouteChange = () => {
     window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
     });
-  }
+  };
 
   constructor() {
     this.header = new Header('header', 'header-container');

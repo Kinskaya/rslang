@@ -3,7 +3,7 @@ import { TState } from '../types/index';
 export const state: TState = {
   words: [],
   token: '',
-  isAuthorizet: false,
+  isAuthorized: false,
   name: '',
   id: '',
 };
