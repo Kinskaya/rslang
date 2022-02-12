@@ -2,7 +2,7 @@ import Page from '../../core/templates/page';
 
 class GamesPage extends Page {
   static TextObject = {
-    MainTitle: 'Games-Page',
+    MainTitle: 'Игры',
   };
 
   constructor(id: string) {

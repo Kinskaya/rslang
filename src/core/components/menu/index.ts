@@ -4,30 +4,33 @@ import { EPageIds } from '../../../types';
 const Buttons = [
   {
     id: EPageIds.mainPage,
-    text: 'RS Lang',
+    text: 'Главная',
+    icon: '<i class="fa fa-fw fa-th-large"></i>',
   },
-/*  {
+  {
     id: EPageIds.bookPage,
-    text: "Book Page",
+    text: 'Учебник',
+    icon: '<i class="fa fa-fw fa-book"></i>',
   },
   {
     id: EPageIds.gamesPage,
-    text: "Games Page",
-  }, */
+    text: 'Игры',
+    icon: '<i class="fa fa-fw fa-gamepad"></i>',
+  },
 ];
 
-class Header extends Component {
+class Menu extends Component {
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
 
   renderPageButtons = (): void => {
     const pageButtons = document.createElement('div');
-    pageButtons.classList.add('header-nav');
+    pageButtons.classList.add('sidebar');
     Buttons.forEach((button) => {
       const buttonHTML = document.createElement('a');
       buttonHTML.href = `#${button.id}`;
-      buttonHTML.innerText = button.text;
+      buttonHTML.innerHTML = `${button.icon} ${button.text}`;
       pageButtons.append(buttonHTML);
     });
     this.container.append(pageButtons);
@@ -38,4 +41,4 @@ class Header extends Component {
     return this.container;
   };
 }
-export default Header;
+export default Menu;
