@@ -21,28 +21,34 @@ authSubmitButton.classList.add('authSubmitButton');
 authSubmitButton.textContent = 'Войти';
 regSubmitButton.classList.add('regSubmitButton');
 regSubmitButton.textContent = 'Зарегистрироваться';
-document.body.append(modalBackground);
-modalBackground.append(modalContainer);
-modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNicknameInput,
-  authSubmitButton, regSubmitButton);
+document.body.insertAdjacentElement('beforeend', modalBackground);
+modalBackground.insertAdjacentElement('beforeend', modalContainer);
+modalContainer.insertAdjacentElement('beforeend', exitAuthModal);
+modalContainer.insertAdjacentElement('beforeend', authEmailInput);
+modalContainer.insertAdjacentElement('beforeend', authPassInput);
+modalContainer.insertAdjacentElement('beforeend', authNicknameInput);
+modalContainer.insertAdjacentElement('beforeend', authSubmitButton);
+modalContainer.insertAdjacentElement('beforeend', regSubmitButton);
 
-const closeModal = ():void => {
+const closeModal = () => {
   modalBackground.style.display = 'none';
 };
 
-const openModalAuth = ():void => {
+const openModalAuth = () => {
   modalBackground.style.display = 'block';
 };
 
-const preLoginUser = ():void => {
+const preLoginUser = () => {
   const user = { email: authEmailInput.value, password: authPassInput.value };
+  console.log(user);
   loginUser(user);
   authEmailInput.value = '';
   authPassInput.value = '';
 };
 
-const preCreateUser = ():void => {
+const preCreateUser = () => {
   const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
+  console.log(user);
   createUser(user);
   authNicknameInput.value = '';
   authEmailInput.value = '';

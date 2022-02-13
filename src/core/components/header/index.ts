@@ -1,9 +1,7 @@
 import Component from '../../templates/components';
 import { EPageIds } from '../../../types';
-import authorization from '../../../authorization/authorization';
 
 class Header extends Component {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }
@@ -20,7 +18,6 @@ class Header extends Component {
 
   render = (): HTMLElement => {
     this.renderHeaderLinks();
-    authorization();
     return this.container;
   };
 }
