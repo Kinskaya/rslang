@@ -5,7 +5,7 @@ export const createWord = async (
   wordId: string,
   word: string,
   token: string,
-) => {
+): Promise<void> => {
   const rawResponse = await fetch(
     `${BASE_URL}/users/${userId}/words/${wordId}`,
     {

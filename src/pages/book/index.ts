@@ -2,16 +2,13 @@ import Page from '../../core/templates/page';
 import { word } from '../../templates/word';
 
 class BookPage extends Page {
-  static TextObject = {
-    MainTitle: 'Учебник',
-  };
-
   constructor(id: string) {
     super(id);
+    this.textObject.name = 'Учебник';
   }
 
   render = (): HTMLElement => {
-    const title = this.creatHeaderTitle(BookPage.TextObject.MainTitle);
+    const title = BookPage.creatHeaderTitle(this.textObject.name);
 
     const wrapper = document.createElement('div');
     wrapper.id = 'wrapper';

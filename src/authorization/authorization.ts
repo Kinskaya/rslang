@@ -1,9 +1,8 @@
-import openModalAuth from './modalWindowAuth';
-import { state } from '../state/index';
+import { openModalAuth } from './modalWindowAuth';
+import { state } from '../state';
 
-export const data = {
-  src: './logo.png',
-};
+export const logoSrc = './logo.png';
+
 const body = document.createElement('div');
 document.body.append(body);
 const container = document.createElement('div');
@@ -12,8 +11,8 @@ const authName = document.createElement('span');
 const logoutButton = document.createElement('button');
 logoutButton.classList.add('logoutButton');
 
-const authorization = (): void => {
-  authLogo.src = data.src;
+export const authorization = (): void => {
+  authLogo.src = logoSrc;
   authLogo.style.width = '100px';
   authLogo.classList.add('authLogo');
   authName.classList.add('auth-name');
@@ -25,7 +24,7 @@ const authorization = (): void => {
   if (!localStorage.getItem('name')) logoutButton.style.display = 'none';
 };
 
-export const login = ():void => {
+export const login = (): void => {
   authName.textContent = state.name;
   if (state.isAuthorized === true) {
     logoutButton.style.display = 'block';
@@ -42,5 +41,3 @@ export const logout = ():void => {
 
 authLogo.addEventListener('click', openModalAuth);
 logoutButton.addEventListener('click', logout);
-
-export default authorization;

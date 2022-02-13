@@ -1,11 +1,9 @@
 import { BASE_URL } from '../consts';
+import { TUser } from '../types';
 
-export const getUser = async (id: string) => {
+export const getUser = async (id: string): Promise<TUser> => {
   const response = await fetch(`${BASE_URL}/users/${id}`);
   const data = await response.json();
-
-  console.log(data.name);
-  console.log(data.email);
 
   return data;
 };
