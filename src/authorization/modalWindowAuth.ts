@@ -27,24 +27,24 @@ modalBackground.append(modalContainer);
 modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNicknameInput,
   authSubmitButton, regSubmitButton);
 
-const closeModal = ():void => {
+const closeModal = (): void => {
   authEmailInput.value = '';
   authPassInput.value = '';
   authNicknameInput.value = '';
   modalBackground.style.display = 'none';
 };
 
-const openModalAuth = ():void => {
+export const openModalAuth = (): void => {
   modalBackground.style.display = 'block';
 };
 
-const preLoginUser = ():void => {
+const preLoginUser = (): void => {
   const user = { email: authEmailInput.value, password: authPassInput.value };
   loginUser(user);
   closeModal();
 };
 
-const preCreateUser = ():void => {
+const preCreateUser = (): void => {
   const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
   createUser(user);
   closeModal();
@@ -53,5 +53,3 @@ const preCreateUser = ():void => {
 authSubmitButton.addEventListener('click', preLoginUser);
 regSubmitButton.addEventListener('click', preCreateUser);
 exitAuthModal.addEventListener('click', closeModal);
-
-export default openModalAuth;

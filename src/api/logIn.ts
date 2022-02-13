@@ -1,15 +1,13 @@
-/* eslint-disable @typescript-eslint/quotes */
-/* eslint-disable @typescript-eslint/comma-dangle */
-import { BASE_URL } from "../consts";
-import { state } from "../state";
-import { TUser } from "../types";
+import { BASE_URL } from '../consts';
+import { state } from '../state';
+import { TUser } from '../types';
 
-export const logIn = async (user: TUser) => {
+export const logIn = async (user: TUser): Promise<string> => {
   const rawResponse = await fetch(`${BASE_URL}/signin`, {
-    method: "POST",
+    method: 'POST',
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify(user),
   });

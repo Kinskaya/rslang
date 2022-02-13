@@ -21,18 +21,15 @@ export type TWord = {
 };
 
 export type TUser = {
+  name: string;
   email: string;
   password: string;
 };
 
 export type TState = {
-  words: [];
+  words: TWord[];
   token?: string;
-  name:string;
-  id:string;
-<<<<<<< HEAD
-  isAuthorized:boolean,
-=======
-  isAuthorizet:boolean,
->>>>>>> d2e9bc190e774db543392083511ece1f8520fb5b
+  name: string;
+  id: string;
+  isAuthorized: boolean,
 };
