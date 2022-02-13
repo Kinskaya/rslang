@@ -17,6 +17,7 @@ modalContainer.classList.add('modalContainer');
 exitAuthModal.classList.add('exitAuthModal');
 exitAuthModal.textContent = 'Закрыть';
 authPassInput.classList.add('authPassInput');
+authPassInput.type = 'password';
 authSubmitButton.classList.add('authSubmitButton');
 authSubmitButton.textContent = 'Войти';
 regSubmitButton.classList.add('regSubmitButton');
@@ -27,6 +28,9 @@ modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNickname
   authSubmitButton, regSubmitButton);
 
 const closeModal = ():void => {
+  authEmailInput.value = '';
+  authPassInput.value = '';
+  authNicknameInput.value = '';
   modalBackground.style.display = 'none';
 };
 
@@ -37,16 +41,13 @@ const openModalAuth = ():void => {
 const preLoginUser = ():void => {
   const user = { email: authEmailInput.value, password: authPassInput.value };
   loginUser(user);
-  authEmailInput.value = '';
-  authPassInput.value = '';
+  closeModal();
 };
 
 const preCreateUser = ():void => {
   const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
   createUser(user);
-  authNicknameInput.value = '';
-  authEmailInput.value = '';
-  authPassInput.value = '';
+  closeModal();
 };
 
 authSubmitButton.addEventListener('click', preLoginUser);
