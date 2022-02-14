@@ -5,6 +5,7 @@ import GamesPage from '../games';
 import Header from '../../core/components/header';
 import { EPageIds } from '../../types';
 import Menu from '../../core/components/menu';
+import Footer from '../../core/components/footer';
 
 class App {
   private static container: HTMLElement = document.body;
@@ -14,6 +15,8 @@ class App {
   private header: Header;
 
   private menu: Menu;
+
+  private footer: Footer;
 
   static renderNewPage(idPage: string): void {
     const currentPageHTML = document.querySelector(`#${App.defaultPageId}`);
@@ -48,6 +51,7 @@ class App {
   constructor() {
     this.header = new Header('header', 'header-container');
     this.menu = new Menu('aside', 'menu');
+    this.footer = new Footer('footer', 'footer-container');
   }
 
   run(): void {
@@ -55,6 +59,7 @@ class App {
     const hash = window.location.hash.slice(1);
     App.renderNewPage(hash || 'main-page');
     App.container.append(this.menu.render());
+    App.container.append(this.footer.render());
     this.enableRouteChange();
   }
 }

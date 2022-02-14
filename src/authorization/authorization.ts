@@ -11,17 +11,20 @@ const authName = document.createElement('span');
 const logoutButton = document.createElement('button');
 logoutButton.classList.add('logoutButton');
 
-export const authorization = (): void => {
+export const authorization = (): HTMLDivElement => {
   authLogo.src = logoSrc;
-  authLogo.style.width = '100px';
+  // authLogo.style.width = '100px';
   authLogo.classList.add('authLogo');
   authName.classList.add('auth-name');
   container.classList.add('auth-container');
-  authName.textContent = localStorage.getItem('name') ? localStorage.getItem('name') : null;
+  authName.textContent = localStorage.getItem('name')
+    ? localStorage.getItem('name')
+    : null;
   logoutButton.textContent = 'Выйти';
   body.insertAdjacentElement('beforeend', container);
   container.append(logoutButton, authName, authLogo);
   if (!localStorage.getItem('name')) logoutButton.style.display = 'none';
+  return container;
 };
 
 export const login = (): void => {
@@ -31,7 +34,7 @@ export const login = (): void => {
   }
 };
 
-export const logout = ():void => {
+export const logout = (): void => {
   state.isAuthorized = false;
   state.name = '';
   localStorage.removeItem('token');

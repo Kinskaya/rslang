@@ -3,9 +3,11 @@ import { EPageIds } from '../../../types';
 import { authorization } from '../../../authorization/authorization';
 
 class Header extends Component {
-  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
+  className: string;
+
   constructor(tagName: string, className: string) {
     super(tagName, className);
+    this.className = 'Header';
   }
 
   renderHeaderLinks = (): void => {
@@ -20,7 +22,8 @@ class Header extends Component {
 
   render = (): HTMLElement => {
     this.renderHeaderLinks();
-    authorization();
+    const sign = authorization();
+    this.container.append(sign);
     return this.container;
   };
 }
