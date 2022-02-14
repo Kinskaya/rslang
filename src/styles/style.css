@@ -147,6 +147,8 @@ min-height: 40px;
 background-color: #ddfbff;
 border: none;
 border-radius: 5px;
+}
+
 .header-container {
   display: flex;
   background-color: #ddfbff;
