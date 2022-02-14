@@ -2,6 +2,7 @@ import Component from '../../templates/components';
 import { menuLinksData } from '../../../consts';
 
 class Menu extends Component {
+  // eslint-disable-next-line @typescript-eslint/no-useless-constructor
   constructor(tagName: string, className: string) {
     super(tagName, className);
   }

@@ -1,3 +1,84 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+.header-container {
+  height: 50px;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px 0 10px 0;
+  background: #ddfbff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.header-nav a {
+  color: grey;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+
+.main-page {
+  display: flex;
+  height: 94vh;
+  width: calc(100% - 160px);
+  background-image: url('../images/bg2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 160px;
+  align-items: center;
+}
+
+.sidebar {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #ddfbff;
+  overflow-x: hidden;
+  padding-top: 35px;
+  opacity: 0.9;
+}
+
+.sidebar a {
+  padding: 10px 8px 10px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #0077d7;
+}
+
+.main-desc-wrap {
+  font-size: 16px;
+  color: grey;
+  text-align: center;
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.describe-title {
+  font-size: 1.7em;
+  margin: 0;
+}
+
 p {
   font-size: 1.5em;
   margin: 5px 0;
@@ -66,6 +147,34 @@ min-height: 40px;
 background-color: #ddfbff;
 border: none;
 border-radius: 5px;
+.header-container {
+  display: flex;
+  background-color: #ddfbff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
+  justify-content: space-between;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.auth-name {
+  margin-left: 10px;
+}
+
+.authLogo {
+  cursor: pointer;
+  height: 100%;
+}
+
+.logoutButton {
+  min-width: 100px;
+  min-height: 40px;
+  background-color: #ddfbff;
+  border: none;
+  border-radius: 5px;
 }
 
 .modalBackground {
@@ -78,7 +187,7 @@ border-radius: 5px;
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   z-index: 10;
 }
 .modalBackground .modalContainer {
@@ -113,6 +222,12 @@ border-radius: 5px;
 }
 
 .modalContainer button{
+  background-color: #ddfbff;
+  border: 2px solid #42e7fd;
+  border-radius: 5px;
+}
+
+.modalContainer button {
   width: 200px;
   height: 40px;
   cursor: pointer;
@@ -127,3 +242,32 @@ border-radius: 5px;
 }
 
 /* -----------------------------------------------------------------------------конец куска про авторизацию */
+
+.footer-container {
+  height: 10vh;
+  background-color: rgb(106, 156, 156);
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5vw;
+  align-items: center;
+}
+
+.footer-nav,
+.footer-year,
+.footer-logo-rss {
+  width: 15vw;
+  text-align: center;
+}
+
+.footer-nav a {
+  display: block;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
