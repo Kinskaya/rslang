@@ -1,24 +1,45 @@
-import openModalAuth from './modalWindowAuth';
+import { openModalAuth } from './modalWindowAuth';
+import { state } from '../state';
 
-const data = {
-  src: './logo.jpg',
-  name: 'Не авторизован',
+export const logoSrc = './logo.png';
+
+const body = document.createElement('div');
+document.body.append(body);
+const container = document.createElement('div');
+const authLogo = document.createElement('img');
+const authName = document.createElement('span');
+const logoutButton = document.createElement('button');
+logoutButton.classList.add('logoutButton');
+
+export const authorization = (): HTMLDivElement => {
+  authLogo.src = logoSrc;
+  authLogo.classList.add('authLogo');
+  authName.classList.add('auth-name');
+  container.classList.add('auth-container');
+  authName.textContent = localStorage.getItem('name')
+    ? localStorage.getItem('name')
+    : null;
+  logoutButton.textContent = 'Выйти';
+  body.insertAdjacentElement('beforeend', container);
+  container.append(logoutButton, authName, authLogo);
+  if (!localStorage.getItem('name')) logoutButton.style.display = 'none';
+  return container;
 };
 
-const authLogo = document.createElement('img');
+export const login = (): void => {
+  authName.textContent = state.name;
+  if (state.isAuthorized === true) {
+    logoutButton.style.display = 'block';
+  }
+};
 
-const authorization = () => {
-  const container = document.createElement('div');
-
-  authLogo.src = data.src;
-  authLogo.style.width = '100px';
-  const authName = document.createElement('span');
-  authName.textContent = data.name;
-  document.body.insertAdjacentElement('beforeend', container);
-  container.insertAdjacentElement('beforeend', authName);
-  container.insertAdjacentElement('beforeend', authLogo);
+export const logout = (): void => {
+  state.isAuthorized = false;
+  state.name = '';
+  localStorage.removeItem('token');
+  localStorage.removeItem('name');
+  authorization();
 };
 
 authLogo.addEventListener('click', openModalAuth);
-
-export default authorization;
+logoutButton.addEventListener('click', logout);

@@ -1,16 +1,22 @@
-import Page from "../../core/templates/page";
-import MainPage from "../main";
-import SettingsPage from "../book";
-import StatisticsPage from "../games";
-import Header from "../../core/components/header";
-import { EPageIds } from "../../types";
+import Page from '../../core/templates/page';
+import MainPage from '../main';
+import BookPage from '../book';
+import GamesPage from '../games';
+import Header from '../../core/components/header';
+import { EPageIds } from '../../types';
+import Menu from '../../core/components/menu';
+import Footer from '../../core/components/footer';
 
 class App {
   private static container: HTMLElement = document.body;
 
-  private static defaultPageId = "current-page";
+  private static defaultPageId = 'current-page';
 
   private header: Header;
+
+  private menu: Menu;
+
+  private footer: Footer;
 
   static renderNewPage(idPage: string): void {
     const currentPageHTML = document.querySelector(`#${App.defaultPageId}`);
@@ -22,34 +28,38 @@ class App {
     if (idPage === EPageIds.mainPage) {
       page = new MainPage(idPage);
     } else if (idPage === EPageIds.bookPage) {
-      page = new SettingsPage(idPage);
+      page = new BookPage(idPage);
     } else if (idPage === EPageIds.gamesPage) {
-      page = new StatisticsPage(idPage);
+      page = new GamesPage(idPage);
     }
 
     if (page) {
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
-      pageHTML.classList.add("page", idPage);
+      pageHTML.classList.add('page', idPage);
       App.container.append(pageHTML);
     }
   }
 
-  private enableRouteChange() {
-    window.addEventListener("hashchange", () => {
+  private enableRouteChange = () => {
+    window.addEventListener('hashchange', () => {
       const hash = window.location.hash.slice(1);
       App.renderNewPage(hash);
     });
-  }
+  };
 
   constructor() {
-    this.header = new Header("header", "header-container");
+    this.header = new Header('header', 'header-container');
+    this.menu = new Menu('aside', 'menu');
+    this.footer = new Footer('footer', 'footer-container');
   }
 
   run(): void {
     App.container.append(this.header.render());
     const hash = window.location.hash.slice(1);
-    App.renderNewPage(hash || "main-page");
+    App.renderNewPage(hash || 'main-page');
+    App.container.append(this.menu.render());
+    App.container.append(this.footer.render());
     this.enableRouteChange();
   }
 }

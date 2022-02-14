@@ -17,46 +17,49 @@ modalContainer.classList.add('modalContainer');
 exitAuthModal.classList.add('exitAuthModal');
 exitAuthModal.textContent = 'Закрыть';
 authPassInput.classList.add('authPassInput');
+authPassInput.type = 'password';
 authSubmitButton.classList.add('authSubmitButton');
 authSubmitButton.textContent = 'Войти';
 regSubmitButton.classList.add('regSubmitButton');
 regSubmitButton.textContent = 'Зарегистрироваться';
-document.body.insertAdjacentElement('beforeend', modalBackground);
-modalBackground.insertAdjacentElement('beforeend', modalContainer);
-modalContainer.insertAdjacentElement('beforeend', exitAuthModal);
-modalContainer.insertAdjacentElement('beforeend', authEmailInput);
-modalContainer.insertAdjacentElement('beforeend', authPassInput);
-modalContainer.insertAdjacentElement('beforeend', authNicknameInput);
-modalContainer.insertAdjacentElement('beforeend', authSubmitButton);
-modalContainer.insertAdjacentElement('beforeend', regSubmitButton);
+document.body.append(modalBackground);
+modalBackground.append(modalContainer);
+modalContainer.append(
+  exitAuthModal,
+  authEmailInput,
+  authPassInput,
+  authNicknameInput,
+  authSubmitButton,
+  regSubmitButton,
+);
 
-const closeModal = () => {
+const closeModal = (): void => {
+  authEmailInput.value = '';
+  authPassInput.value = '';
+  authNicknameInput.value = '';
   modalBackground.style.display = 'none';
 };
 
-const openModalAuth = () => {
+export const openModalAuth = (): void => {
   modalBackground.style.display = 'block';
 };
 
-const preLoginUser = () => {
+const preLoginUser = (): void => {
   const user = { email: authEmailInput.value, password: authPassInput.value };
-  console.log(user);
   loginUser(user);
-  authEmailInput.value = '';
-  authPassInput.value = '';
+  closeModal();
 };
 
-const preCreateUser = () => {
-  const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
-  console.log(user);
+const preCreateUser = (): void => {
+  const user = {
+    name: authNicknameInput.value,
+    email: authEmailInput.value,
+    password: authPassInput.value,
+  };
   createUser(user);
-  authNicknameInput.value = '';
-  authEmailInput.value = '';
-  authPassInput.value = '';
+  closeModal();
 };
 
 authSubmitButton.addEventListener('click', preLoginUser);
 regSubmitButton.addEventListener('click', preCreateUser);
 exitAuthModal.addEventListener('click', closeModal);
-
-export default openModalAuth;

@@ -1,7 +1,7 @@
 export const enum EPageIds {
-  mainPage = "main-page",
-  bookPage = "book-page",
-  gamesPage = "games-page",
+  mainPage = 'main-page',
+  bookPage = 'book-page',
+  gamesPage = 'games-page',
 }
 export type TWord = {
   id: string;
@@ -21,11 +21,15 @@ export type TWord = {
 };
 
 export type TUser = {
+  name: string;
   email: string;
   password: string;
 };
 
 export type TState = {
-  words: [];
+  words: TWord[];
   token?: string;
+  name: string;
+  id: string;
+  isAuthorized: boolean,
 };

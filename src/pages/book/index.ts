@@ -1,22 +1,19 @@
-import Page from "../../core/templates/page";
-import { word } from "../../templates/word";
+import Page from '../../core/templates/page';
+import { word } from '../../templates/word';
 
 class BookPage extends Page {
-  static TextObject = {
-    MainTitle: "Book Page",
-  };
-
   constructor(id: string) {
     super(id);
+    this.textObject.name = 'Учебник';
   }
 
   render = (): HTMLElement => {
-    const title = this.creatHeaderTitle(BookPage.TextObject.MainTitle);
+    const title = BookPage.creatHeaderTitle(this.textObject.name);
 
-    const wrapper = document.createElement("div");
-    wrapper.id = "wrapper";
-    const main = document.createElement("div");
-    main.id = "main";
+    const wrapper = document.createElement('div');
+    wrapper.id = 'wrapper';
+    const main = document.createElement('div');
+    main.id = 'main';
 
     wrapper.append(main);
     word();
