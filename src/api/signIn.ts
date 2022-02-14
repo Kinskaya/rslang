@@ -1,7 +1,10 @@
 import { state } from '../state/index';
 import { login } from '../authorization/authorization';
 
-export const loginUser = async (user: { email:string, password:string }):Promise<void> => {
+export const loginUser = async (user: {
+  email: string;
+  password: string;
+}): Promise<void> => {
   const rawResponse = await fetch('http://localhost:9000/signin', {
     method: 'POST',
     headers: {

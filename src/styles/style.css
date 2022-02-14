@@ -226,11 +226,14 @@ p {
 
 .footer-container {
   height: 10vh;
-  background-color: rgb(106, 156, 156);
+  /* background-color: rgb(106, 156, 156); */
   display: flex;
   justify-content: space-between;
   padding: 0 5vw;
   align-items: center;
+  padding-left: 200px;
+  background-color: #ddfbff;
+  box-shadow: 0 0 10px rgb(0 0 0 / 50%);
 }
 
 .footer-nav,
@@ -238,6 +241,22 @@ p {
 .footer-logo-rss {
   width: 15vw;
   text-align: center;
+}
+
+.footer-author-line {
+  display: flex;
+  align-items: center;
+}
+
+.footer-author-line img {
+  padding-right: 10px;
+  height: 1.2em;
+}
+
+.footer-year {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: gray;
 }
 
 .footer-nav a {

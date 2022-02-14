@@ -13,11 +13,16 @@ class Footer extends Component {
     const blockAuthors = document.createElement('div');
     blockAuthors.classList.add('footer-nav');
     authorsList.forEach((author) => {
+      const authorLine = document.createElement('div');
+      authorLine.classList.add('footer-author-line');
+      const authorImg = document.createElement('img');
+      authorImg.src = './github.svg';
       const authorHTML = document.createElement('a');
       authorHTML.target = '_blank';
       authorHTML.href = `${author.id}`;
       authorHTML.innerText = author.text;
-      blockAuthors.append(authorHTML);
+      authorLine.append(authorImg, authorHTML);
+      blockAuthors.append(authorLine);
     });
     this.container.append(blockAuthors);
   };
