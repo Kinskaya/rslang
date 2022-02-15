@@ -32,5 +32,23 @@ export const authorsList = [
   {
     id: 'https://github.com/margoroma',
     text: 'margoroma',
+  }
+];
+
+export const teamData = [
+  {
+    name: 'Иван',
+    position: 'Front-end developer',
+    description: 'Авторизация, игра "Аудиовызов"... ',
+  },
+  {
+    name: 'Маргарита',
+    position: 'Front-end developer',
+    description: 'Учебник, список слов... ',
+  },
+  {
+    name: 'Анастасия',
+    position: 'Front-end developer',
+    description: 'Роутинг, главная страница... ',
   },
 ];
