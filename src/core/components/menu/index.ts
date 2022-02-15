@@ -2,8 +2,11 @@ import Component from '../../templates/components';
 import { menuLinksData } from '../../../consts';
 
 class Menu extends Component {
+  className: string;
+
   constructor(tagName: string, className: string) {
     super(tagName, className);
+    this.className = 'Menu';
   }
 
   renderLinksData = (): void => {

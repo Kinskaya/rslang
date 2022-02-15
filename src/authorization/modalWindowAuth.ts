@@ -24,8 +24,14 @@ regSubmitButton.classList.add('regSubmitButton');
 regSubmitButton.textContent = 'Зарегистрироваться';
 document.body.append(modalBackground);
 modalBackground.append(modalContainer);
-modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNicknameInput,
-  authSubmitButton, regSubmitButton);
+modalContainer.append(
+  exitAuthModal,
+  authEmailInput,
+  authPassInput,
+  authNicknameInput,
+  authSubmitButton,
+  regSubmitButton
+);
 
 const closeModal = (): void => {
   authEmailInput.value = '';
@@ -45,7 +51,11 @@ const preLoginUser = (): void => {
 };
 
 const preCreateUser = (): void => {
-  const user = { name: authNicknameInput.value, email: authEmailInput.value, password: authPassInput.value };
+  const user = {
+    name: authNicknameInput.value,
+    email: authEmailInput.value,
+    password: authPassInput.value,
+  };
   createUser(user);
   closeModal();
 };

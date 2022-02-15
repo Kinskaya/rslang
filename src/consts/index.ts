@@ -19,3 +19,18 @@ export const menuLinksData = [
     icon: '<i class="fa fa-fw fa-gamepad"></i>',
   },
 ];
+
+export const authorsList = [
+  {
+    id: 'https://github.com/VanKertiss',
+    text: 'VanKertiss',
+  },
+  {
+    id: 'https://github.com/Kinskaya',
+    text: 'Kinskaya',
+  },
+  {
+    id: 'https://github.com/margoroma',
+    text: 'margoroma',
+  },
+];
