@@ -10,7 +10,7 @@ class Menu extends Component {
   }
 
   renderLinksData = (): void => {
-    const menuLinks = document.createElement('div');
+    const menuLinks = document.createElement(this.textObject.name);
     menuLinks.classList.add('sidebar');
     menuLinksData.forEach((link) => {
       const buttonHTML = document.createElement('a');
