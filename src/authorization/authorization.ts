@@ -1,14 +1,36 @@
-import { openModalAuth } from './modalWindowAuth';
 import { state } from '../state';
+import { authLogin } from './authLogin';
+import openModalAuth from './openModal';
+import { authCreateUser } from './authCreateUser';
+import { closeModal } from './closeModal';
+import {
+  modalBackground, authEmailInput, authPassInput,
+  authNicknameInput, modalContainer, exitAuthModal,
+  authSubmitButton, regSubmitButton, body, logoutButton,
+  authLogo, authName, container,
+} from './variables';
 
 export const logoSrc = './logo.png';
 
-const body = document.createElement('div');
+authEmailInput.placeholder = 'email';
+authPassInput.placeholder = 'password';
+authNicknameInput.classList.add('authNicknameInput');
+authNicknameInput.placeholder = 'nickname';
+modalBackground.classList.add('modalBackground');
+modalContainer.classList.add('modalContainer');
+exitAuthModal.classList.add('exitAuthModal');
+exitAuthModal.textContent = 'Закрыть';
+authPassInput.classList.add('authPassInput');
+authPassInput.type = 'password';
+authSubmitButton.classList.add('authSubmitButton');
+authSubmitButton.textContent = 'Войти';
+regSubmitButton.classList.add('regSubmitButton');
+regSubmitButton.textContent = 'Зарегистрироваться';
+document.body.append(modalBackground);
+modalBackground.append(modalContainer);
+modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNicknameInput,
+  authSubmitButton, regSubmitButton);
 document.body.append(body);
-const container = document.createElement('div');
-const authLogo = document.createElement('img');
-const authName = document.createElement('span');
-const logoutButton = document.createElement('button');
 logoutButton.classList.add('logoutButton');
 
 export const authorization = (): HTMLDivElement => {
@@ -27,14 +49,7 @@ export const authorization = (): HTMLDivElement => {
   return container;
 };
 
-export const login = (): void => {
-  authName.textContent = state.name;
-  if (state.isAuthorized === true) {
-    logoutButton.style.display = 'block';
-  }
-};
-
-export const logout = (): void => {
+const logout = ():void => {
   state.isAuthorized = false;
   state.name = '';
   localStorage.removeItem('token');
@@ -44,3 +59,6 @@ export const logout = (): void => {
 
 authLogo.addEventListener('click', openModalAuth);
 logoutButton.addEventListener('click', logout);
+authSubmitButton.addEventListener('click', authLogin);
+regSubmitButton.addEventListener('click', authCreateUser);
+exitAuthModal.addEventListener('click', closeModal);

@@ -1,5 +1,4 @@
 import { state } from '../state/index';
-import { login } from '../authorization/authorization';
 
 export const loginUser = async (user: {
   email: string;
@@ -19,5 +18,4 @@ export const loginUser = async (user: {
   localStorage.setItem('name', content.name);
   state.isAuthorized = true;
   state.name = content.name;
-  login();
 };
