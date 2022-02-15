@@ -1,5 +1,5 @@
 import { authEmailInput, authPassInput } from './variables';
-import { loginUser } from '../api/signIn';
+import { loginUser } from '../api/index';
 import { renderloginInfo } from './renderloginInfo';
 import { closeModal } from './closeModal';
 

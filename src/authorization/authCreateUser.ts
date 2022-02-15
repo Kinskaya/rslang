@@ -1,5 +1,5 @@
 import { authEmailInput, authNicknameInput, authPassInput } from './variables';
-import { createUser } from '../api/createUser';
+import { createUser } from '../api/index';
 import { closeModal } from './closeModal';
 
 export const authCreateUser = (): void => {
