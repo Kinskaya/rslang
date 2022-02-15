@@ -7,9 +7,10 @@
 body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-  width: 98vw;
-  height: 98vh;
+/*  width: 98vw;
+  height: 98vh;*/
   position: relative;
+  color: grey;
 }
 
 .header-container {
@@ -30,23 +31,25 @@ body {
 }
 
 .header-nav a {
-  color: grey;
   font-weight: bold;
   cursor: pointer;
   font-size: 1.5rem;
   text-decoration: none;
   /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  color: grey;
 }
 
 .main-page {
   display: flex;
-  height: 94vh;
+ /* height: 94vh;*/
   width: calc(100% - 160px);
-  background-image: url('../images/bg2.png');
+  background-image: url('../images/bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   margin-left: 160px;
   align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .sidebar {
@@ -76,16 +79,17 @@ body {
 
 .main-desc-wrap {
   font-size: 16px;
-  color: grey;
   text-align: center;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 200px;
+  margin-bottom: 180px;
 }
 
 .describe-title {
-  font-size: 1.7em;
+  font-size: 1.64em;
   margin: 0;
+  letter-spacing: 0.5px;
 }
 
 p {
@@ -239,7 +243,7 @@ p {
 .footer-nav,
 .footer-year,
 .footer-logo-rss {
-  width: 15vw;
+  width: 8vw;
   text-align: center;
 }
 
@@ -261,6 +265,82 @@ p {
 
 .footer-nav a {
   display: block;
+}
+
+/*------- карточки команды -----------*/
+
+.team-cards-title {
+  font-size: 1.7em;
+  position: absolute;
+  margin-left: 206px;
+  margin-top: -30px;
+}
+
+.team-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 600px;
+  height: 175px;
+  margin-bottom: 15px;
+}
+
+.flip-card {
+  border-radius: 100px;
+  background-color: transparent;
+  width: 30%;
+  height: auto;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card-front {
+  background: url("../images/avatar.png") 50% 5% no-repeat,
+              url("../images/card-bg.jpg") 90% 90% no-repeat;
+  background-size: 35%, cover;
+  background-position: top;
+}
+
+.flip-card-front h4 {
+  font-size: 18px;
+  margin-top: 47px;
+  margin-bottom: 30px;
+}
+
+.flip-card-front p,
+.flip-card-back p {
+  font-size: 16px;
+  margin: 0 0;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 100px;
+}
+
+.flip-card-back {
+  background-color: #ddfbff;
+  transform: rotateY(180deg);
+}
+
+.flip-card-back p {
+  margin-top: 35%;
 }
 
 @media screen and (max-height: 450px) {
