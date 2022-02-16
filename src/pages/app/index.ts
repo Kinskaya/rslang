@@ -37,7 +37,8 @@ class App {
       const pageHTML = page.render();
       pageHTML.id = App.defaultPageId;
       pageHTML.classList.add('page', idPage);
-      App.container.append(pageHTML);
+      const wrap = document.getElementById('wrapper');
+      wrap?.append(pageHTML);
     }
   }
 
@@ -57,6 +58,9 @@ class App {
   run(): void {
     App.container.append(this.header.render());
     const hash = window.location.hash.slice(1);
+    const wrapperPage = document.createElement('div');
+    wrapperPage.id = 'wrapper';
+    App.container.append(wrapperPage);
     App.renderNewPage(hash || 'main-page');
     App.container.append(this.menu.render());
     App.container.append(this.footer.render());
