@@ -1,5 +1,5 @@
 export const modalBackground = document.createElement('div');
-export const body = document.createElement('div');
+export const body = document.querySelector('.header-container');
 export const container = document.createElement('div');
 export const authLogo = document.createElement('img');
 export const authName = document.createElement('span');

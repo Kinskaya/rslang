@@ -30,7 +30,6 @@ document.body.append(modalBackground);
 modalBackground.append(modalContainer);
 modalContainer.append(exitAuthModal, authEmailInput, authPassInput, authNicknameInput,
   authSubmitButton, regSubmitButton);
-document.body.append(body);
 logoutButton.classList.add('logoutButton');
 
 export const authorization = (): HTMLDivElement => {
@@ -43,7 +42,7 @@ export const authorization = (): HTMLDivElement => {
     ? localStorage.getItem('name')
     : null;
   logoutButton.textContent = 'Выйти';
-  body.insertAdjacentElement('beforeend', container);
+  body?.insertAdjacentElement('beforeend', container);
   container.append(logoutButton, authName, authLogo);
   if (!localStorage.getItem('name')) logoutButton.style.display = 'none';
   return container;
