@@ -351,3 +351,31 @@ p {
     font-size: 18px;
   }
 }
+
+/* ----------------------------------------------------------------------game audio challenge */
+
+.game-page{
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.gamePageLink{
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.levelLink{
+  padding: 30px;
+  border-radius:50%;
+  border:rgb(0, 195, 255) solid 2px;
+  background-color:#42e7fd;
+  cursor: pointer;
+}
+
+.levels{
+  width: 70%;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+}
