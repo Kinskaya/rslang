@@ -2,6 +2,7 @@ import { BASE_URL } from '../consts';
 import { TWord } from '../types';
 import { getAllWords } from '../api/getAllWords';
 import { state } from '../state';
+import { createDiff } from './difficult-words';
 
 export const word = async (
   group?: number,
@@ -112,6 +113,7 @@ export const word = async (
       wordMeaningTranslate,
       blockExample,
       wordExampleTranslate,
+        createDiff(),
     );
     dataWords.append(wordCard);
   });

@@ -437,6 +437,47 @@ p {
   margin-top: 35%;
 }
 
+.diff-wrap {
+  display: none;
+  cursor: pointer;
+}
+
+.diff-wrap i {
+  font-size: 24px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Текст подсказки */
+.tooltip .tooltip-text {
+  width: 215px;
+  font-size: 12px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Расположите текст подсказки */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Исчезают в подсказке */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
