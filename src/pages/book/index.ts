@@ -83,7 +83,6 @@ class BookPage extends Page {
       selectedLevel = Number(clickLevel) - 1;
       selectedPage = 0;
       word(selectedLevel, 0);
-      console.log('level-', selectedLevel, 'page-', selectedPage);
 
       const firstPageActive = document.getElementById('1-page');
       firstPageActive?.classList.add('active');
@@ -100,12 +99,10 @@ class BookPage extends Page {
       const clickPage = target?.innerHTML;
       word(selectedLevel, Number(clickPage) - 1);
       selectedPage = Number(clickPage) - 1;
-      console.log('level:', selectedLevel, 'page:', selectedPage);
     });
 
     const firstPage = document.getElementById('1-page');
     firstPage?.classList.add('active');
-    console.log(firstPage?.classList);
 
     this.container.append(title, wrapper);
     return this.container;
