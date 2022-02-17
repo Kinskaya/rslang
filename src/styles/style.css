@@ -7,7 +7,7 @@
 body {
   font-family: 'Arial', sans-serif;
   font-size: 16px;
-/*  width: 98vw;
+  /*  width: 98vw;
   height: 98vh;*/
   position: relative;
   color: grey;
@@ -41,7 +41,7 @@ body {
 
 .main-page {
   display: flex;
- /* height: 94vh;*/
+  /* height: 94vh;*/
   width: calc(100% - 160px);
   background-image: url('../images/bg.png');
   background-repeat: no-repeat;
@@ -92,13 +92,105 @@ body {
   letter-spacing: 0.5px;
 }
 
+/* ///////////////////////////  book - page  //////////////////// */
+
 p {
-  font-size: 1.5em;
+  font-size: 1em;
   margin: 5px 0;
+  color: black;
+}
+
+.book-page {
+  background: linear-gradient(to top, #b2f5e5 0%, #9dd4ee 100%);
 }
 
 .block-level-btn {
   text-align: center;
+}
+
+.page {
+  padding: 0 10px 0 160px;
+}
+
+.block-levels-btn {
+  text-align: center;
+  margin: 1em 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+.block-pages-btn {
+  text-align: center;
+  margin: 0.5em 0;
+}
+
+.title-levels,
+.title-pages {
+  color: black;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.level-btn {
+  text-decoration: none;
+  display: inline-block;
+  width: 100px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  margin: 10px 10px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  border: 5px;
+  cursor: pointer;
+}
+.level-btn:hover {
+  background: #53ec98;
+  box-shadow: 0 15px 20px rgba(46, 229, 157, 0.4);
+  color: white;
+  transform: translateY(-7px);
+}
+
+.page-btn {
+  text-decoration: none;
+  display: inline-block;
+  padding: 3px 3px;
+  margin: 10px 3px;
+  border-radius: 5px;
+  background-image: linear-gradient(
+    45deg,
+    #6ab1d7 0%,
+    #33d9de 50%,
+    #002878 100%
+  );
+  background-position: 100% 0;
+  background-size: 200% 200%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+  color: white;
+  box-shadow: 0 16px 32px 0 rgba(0, 40, 120, 0.35);
+  transition: 0.5s;
+  cursor: pointer;
+}
+.page-btn:hover {
+  box-shadow: 0 0 0 0 rgba(0, 40, 120, 0);
+  background-position: 0 0;
+}
+
+.level-btn.active,
+.page-btn.active {
+  background: rgb(202, 78, 202);
 }
 
 .data-words {
@@ -113,7 +205,8 @@ p {
   border: 4px double rgb(0, 195, 255);
   margin: 3% 0;
   text-align: center;
-  padding: 0 1em;
+  padding: 0.4em 1em;
+  background-color: #ffffff;
 }
 
 .image-word {
@@ -304,8 +397,8 @@ p {
 }
 
 .flip-card-front {
-  background: url("../images/avatar.png") 50% 5% no-repeat,
-              url("../images/card-bg.jpg") 90% 90% no-repeat;
+  background: url('../images/avatar.png') 50% 5% no-repeat,
+    url('../images/card-bg.jpg') 90% 90% no-repeat;
   background-size: 35%, cover;
   background-position: top;
 }
@@ -326,7 +419,8 @@ p {
   transform: rotateY(180deg);
 }
 
-.flip-card-front, .flip-card-back {
+.flip-card-front,
+.flip-card-back {
   position: absolute;
   width: 100%;
   height: 100%;

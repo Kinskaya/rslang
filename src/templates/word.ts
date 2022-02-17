@@ -3,9 +3,11 @@ import { TWord } from '../types';
 import { getAllWords } from '../api/getAllWords';
 import { state } from '../state';
 
-export const word = async (): Promise<HTMLDivElement> => {
-  // await getAllWords(3, 0);
-  await getAllWords();
+export const word = async (
+  group?: number,
+  page?: number
+): Promise<HTMLDivElement> => {
+  await getAllWords(group, page);
   const data = state.words;
 
   const dataWords = document.createElement('div');
@@ -109,14 +111,13 @@ export const word = async (): Promise<HTMLDivElement> => {
       blockMeaning,
       wordMeaningTranslate,
       blockExample,
-      wordExampleTranslate,
+      wordExampleTranslate
     );
     dataWords.append(wordCard);
   });
 
-  // console.log(dataWords);
   const mainPage = document.getElementById('main');
-  mainPage?.append(dataWords);
+  mainPage?.replaceChildren(dataWords);
 
   return dataWords;
 };
