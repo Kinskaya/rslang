@@ -2,6 +2,7 @@ export const enum EPageIds {
   mainPage = 'main-page',
   bookPage = 'book-page',
   gamesPage = 'games-page',
+  dictionaryPage = 'dictionary-page',
 }
 export type TWord = {
   id: string;
@@ -40,4 +41,5 @@ export type TGameState = {
   gameWords: TWord[],
   count: 0,
   result: boolean[],
+  isHard: boolean,
 };

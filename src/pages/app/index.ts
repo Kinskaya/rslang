@@ -6,6 +6,7 @@ import Header from '../../core/components/header';
 import { EPageIds } from '../../types';
 import Menu from '../../core/components/menu';
 import Footer from '../../core/components/footer';
+import DictionaryPage from '../dictionary';
 
 class App {
   private static container: HTMLElement = document.body;
@@ -31,6 +32,8 @@ class App {
       page = new BookPage(idPage);
     } else if (idPage === EPageIds.gamesPage) {
       page = new GamesPage(idPage);
+    } else if (idPage === EPageIds.dictionaryPage) {
+      page = new DictionaryPage(idPage);
     }
 
     if (page) {

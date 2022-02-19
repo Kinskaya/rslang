@@ -8,6 +8,7 @@ export const state: TState = {
   name: localStorage.getItem('name') || '',
   userId: localStorage.getItem('userId') || '',
   id: '',
+  isHard: false,
 };
 
 export const gameState:TGameState = {

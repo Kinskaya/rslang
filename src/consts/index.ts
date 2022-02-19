@@ -1,10 +1,15 @@
 import { EPageIds } from '../types';
 
+<<<<<<< HEAD
 export const BASE_URL = 'http://127.0.0.1:9000';
 
 //  https://rslang-guseff.herokuapp.com
 //  http://127.0.0.1:9000
 
+=======
+export const BASE_URL = 'https://rslang-guseff.herokuapp.com';
+/*'http://127.0.0.1:9000'*/
+>>>>>>> c5ff615 (feat: add dictionary page)
 export const menuLinksData = [
   {
     id: EPageIds.mainPage,
@@ -20,6 +25,11 @@ export const menuLinksData = [
     id: EPageIds.gamesPage,
     text: 'Игры',
     icon: '<i class="fa fa-fw fa-gamepad"></i>',
+  },
+  {
+    id: EPageIds.dictionaryPage,
+    text: 'Словарь',
+    icon: '<i class="fa fa-fw fa-edit"></i>',
   },
 ];
 
@@ -55,3 +65,16 @@ export const teamData = [
     description: 'Роутинг, главная страница... ',
   },
 ];
+
+export const statusWord = {
+  isHard: {
+    status: false,
+    icon: '<i class="far fa-bookmark"></i>',
+    text: 'Добавить в раздел "Сложные слова"',
+  },
+  isStudied: {
+    status: false,
+    icon: '<i class="far fa-check-circle"></i>',
+    text: 'Изученное',
+  },
+};
