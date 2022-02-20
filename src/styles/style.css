@@ -458,11 +458,9 @@ body {
 }
 
 .tooltip-wrap {
-/*  position: relative;*/
   display: inline-block;
 }
 
-/* Текст подсказки */
 .tooltip-wrap .tooltip-title {
   font-size: 12px;
   background-color: #555;
@@ -470,15 +468,11 @@ body {
   text-align: center;
   padding: 5px 0;
   border-radius: 6px;
-
-  /* Расположите текст подсказки */
   position: absolute;
   z-index: 1;
   bottom: 70%;
   left: 50%;
   margin-left: -114px;
-
-  /* Исчезают в подсказке */
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -495,6 +489,7 @@ body {
 .dictionary-page {
   height: 793px;
 }
+
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;

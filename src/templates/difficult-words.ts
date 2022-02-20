@@ -1,5 +1,7 @@
 import { authName } from '../authorization/variables';
 import { statusWord } from '../consts';
+import {state} from "../state";
+import {createHardWord} from "../api/createHardWord";
 
 export const createStatusWordWrap = (): HTMLElement => {
   const wrap = document.createElement('div');
@@ -19,10 +21,10 @@ export const createStatusWordWrap = (): HTMLElement => {
   return wrap;
 };
 
-export const markHardWord = (): void => {
+export const markHardWord = (id: string): void => {
   const btns = document.querySelectorAll<HTMLElement>('.fa-bookmark');
   btns.forEach((el) => el.addEventListener('click', () => {
     el.classList.add('active');
+    createHardWord(state.userId, id)
   }));
-
 };

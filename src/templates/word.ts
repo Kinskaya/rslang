@@ -116,10 +116,11 @@ export const word = async (
       createStatusWordWrap(),
     );
     dataWords.append(wordCard);
+
   });
 
   const mainPage = document.getElementById('main');
   mainPage?.replaceChildren(dataWords);
-  markHardWord();
+  markHardWord(wordCard.id);
   return dataWords;
 };

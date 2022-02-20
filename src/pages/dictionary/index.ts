@@ -1,5 +1,7 @@
 import Page from '../../core/templates/page';
 import { authName } from '../../authorization/variables';
+import { getHardWords } from '../../api/getHardWords';
+import { state } from '../../state';
 
 class DictionaryPage extends Page {
     constructor(id: string) {
@@ -14,6 +16,7 @@ class DictionaryPage extends Page {
         if (!authName.textContent) {
             this.container.append(title, notice);
         } else {
+            getHardWords(state.userId);
             this.container.append(title);
         }
         return this.container;
