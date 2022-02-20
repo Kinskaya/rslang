@@ -32,7 +32,7 @@ export const authorsList = [
   {
     id: 'https://github.com/margoroma',
     text: 'margoroma',
-  }
+  },
 ];
 
 export const teamData = [

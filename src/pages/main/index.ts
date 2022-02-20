@@ -2,7 +2,6 @@ import Page from '../../core/templates/page';
 import { teamData } from '../../consts';
 
 class MainPage extends Page {
-
   constructor(id: string) {
     super(id);
     this.textObject.name = 'RS Lang';
