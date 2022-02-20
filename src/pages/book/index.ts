@@ -69,12 +69,12 @@ class BookPage extends Page {
       Array.from(document.getElementsByClassName('level-btn')).forEach(
         (item) => {
           item.classList.remove('active');
-        }
+        },
       );
       Array.from(document.getElementsByClassName('page-btn')).forEach(
         (item) => {
           item.classList.remove('active');
-        }
+        },
       );
       const target = (e.target as Element).closest('.level-btn');
       target?.classList.add('active');
@@ -92,7 +92,7 @@ class BookPage extends Page {
       Array.from(document.getElementsByClassName('page-btn')).forEach(
         (item) => {
           item.classList.remove('active');
-        }
+        },
       );
       const target = (e.target as Element).closest('.page-btn');
       target?.classList.add('active');

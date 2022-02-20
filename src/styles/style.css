@@ -445,3 +445,67 @@ p {
     font-size: 18px;
   }
 }
+
+/* ----------------------------------------------------------------------game audio challenge */
+
+.game-page{
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.gameBlock{
+  padding: 50px;
+}
+
+.gamePageLink{
+  cursor: pointer;
+  margin-top: 30px;
+}
+
+.levelLink{
+  padding: 30px;
+  border-radius:50%;
+  border:rgb(0, 195, 255) solid 2px;
+  background-color:#42e7fd;
+  cursor: pointer;
+}
+
+.levels{
+  width: 70%;
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.gameBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+.soundImg{
+  margin-top: 50px;
+}
+
+.soundWord{
+  margin-bottom: 50px;
+}
+
+.checkItemLabel{
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.optionsContainer{
+  padding: 15px;
+}
+
+.gameButtonSubmit{
+  padding: 15px 30px;
+  border-radius:5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}

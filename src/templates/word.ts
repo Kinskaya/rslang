@@ -5,7 +5,7 @@ import { state } from '../state';
 
 export const word = async (
   group?: number,
-  page?: number
+  page?: number,
 ): Promise<HTMLDivElement> => {
   await getAllWords(group, page);
   const data = state.words;
@@ -111,7 +111,7 @@ export const word = async (
       blockMeaning,
       wordMeaningTranslate,
       blockExample,
-      wordExampleTranslate
+      wordExampleTranslate,
     );
     dataWords.append(wordCard);
   });
