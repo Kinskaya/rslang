@@ -1,4 +1,4 @@
-import { TState } from '../types/index';
+import { TState, TGameState } from '../types/index';
 
 export const state: TState = {
   words: [],
@@ -10,7 +10,8 @@ export const state: TState = {
   id: '',
 };
 
-export const gameState = {
+export const gameState:TGameState = {
   gameWords: [],
   count: 0,
+  result: [],
 };
