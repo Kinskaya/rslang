@@ -27,6 +27,7 @@ export type TUser = {
 };
 
 export type TState = {
+  gameWords: TWord[];
   words: TWord[];
   token?: string;
   name: string;

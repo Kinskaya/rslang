@@ -4,3 +4,4 @@ export { getAllWords } from './getAllWords';
 export { getUser } from './getUser';
 export { getWord } from './getWord';
 export { loginUser } from './signIn';
+export { getWordsForGame } from './getWordsForGame';
