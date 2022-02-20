@@ -1,7 +1,7 @@
 import { state, gameState } from '../state/index';
 import { BASE_URL } from '../consts';
 
-const { count } = gameState;
+let { count } = gameState;
 
 export const renderAudioPage = (): void => {
   const gameContainer = document.querySelector('#current-page');
@@ -53,12 +53,19 @@ export const renderAudioPage = (): void => {
   optionsContainer.append(checkItem1, checkItemLabel1, checkItem2, checkItemLabel2, checkItem3, checkItemLabel3);
 
   const gameButtonSubmit = document.createElement('button');
+  gameButtonSubmit.classList.add('gameButtonSubmit');
   gameButtonSubmit.textContent = 'Принять ответ';
 
-  gameBlock.append(soundImg, soundWord, optionsContainer);
+  gameBlock.append(soundImg, soundWord, optionsContainer, gameButtonSubmit);
   gameContainer!.append(gameBlock);
-  if (gameState.count < 19) {
-    gameState.count++;
-    renderAudioPage();
-  }
+
+  const nextQuestion = () => {
+    if (count < 19) {
+      count += 1;
+      console.log();
+      renderAudioPage();
+    }
+  };
+
+  gameButtonSubmit.addEventListener('click', nextQuestion);
 };

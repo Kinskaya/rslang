@@ -16,6 +16,7 @@ export const loginUser = async (user: {
   state.token = content.token;
   localStorage.setItem('token', content.token);
   localStorage.setItem('name', content.name);
+  localStorage.setItem('userID', content.userId);
   state.isAuthorized = true;
   state.name = content.name;
 };

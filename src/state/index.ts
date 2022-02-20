@@ -6,6 +6,7 @@ export const state: TState = {
   token: localStorage.getItem('token') || '',
   isAuthorized: !!localStorage.getItem('name'),
   name: localStorage.getItem('name') || '',
+  userId: localStorage.getItem('userId') || '',
   id: '',
 };
 
