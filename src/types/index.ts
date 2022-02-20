@@ -33,4 +33,5 @@ export type TState = {
   name: string;
   id: string;
   isAuthorized: boolean,
+  userId:string;
 };
