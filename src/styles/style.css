@@ -360,6 +360,10 @@ p {
   flex-direction: column;
 }
 
+.gameBlock{
+  padding: 50px;
+}
+
 .gamePageLink{
   cursor: pointer;
   margin-top: 30px;
@@ -378,4 +382,28 @@ p {
   margin-top: 80px;
   display: flex;
   justify-content: space-around;
+}
+
+.gameBlock{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+.soundImg{
+  margin-top: 50px;
+}
+
+.soundWord{
+  margin-bottom: 50px;
+}
+
+.checkItemLabel{
+  margin-right: 50px;
+  cursor: pointer;
+}
+
+.optionsContainer{
+  padding: 15px;
 }
