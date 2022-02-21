@@ -10,14 +10,14 @@ export const renderResult = ():void => {
   const resultTitle = document.createElement('h2');
   resultTitle.textContent = 'Ваши результаты';
   gameContainer!.append(resultTitle);
-  console.log(gameState.result);
+
   gameState.result.forEach((item:boolean):void => {
     gameContainer!.insertAdjacentHTML('beforeend',
       `<div>${count} слово - ${item ? 'Правильно' : 'Не правильно'}</div>`);
     count += 1;
   });
   const howMachResult = gameState.result.filter((item) => item === true);
-  console.log(howMachResult);
+
   counResult.textContent = `${howMachResult.length} / ${gameState.result.length}`;
   gameContainer!.append(counResult);
   gameState.result = [];

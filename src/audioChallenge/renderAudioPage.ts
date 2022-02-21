@@ -64,10 +64,7 @@ export const renderAudioPage = (): void => {
   gameBlock.append(soundImg, soundWord, optionsContainer, gameButtonSubmit);
   gameContainer!.append(gameBlock);
 
-  console.log(state.gameWords[count]);
-
   const nextQuestion = () => {
-    const serchAnswer = [checkItem1, checkItem2, checkItem3];
     if (checkItem1.checked) {
       gameState.result.push(true);
     }
