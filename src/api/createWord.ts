@@ -10,7 +10,6 @@ export const createWord = async (
     `${BASE_URL}/users/${userId}/words/${wordId}`,
     {
       method: 'POST',
-      //   withCredentials: true,
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json',
@@ -19,7 +18,5 @@ export const createWord = async (
       body: JSON.stringify(word),
     },
   );
-  const content = await rawResponse.json();
-
-  console.log(content);
+  return rawResponse.json();
 };

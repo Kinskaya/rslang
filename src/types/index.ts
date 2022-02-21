@@ -20,6 +20,8 @@ export type TWord = {
   wordTranslate: string;
   textMeaningTranslate: string;
   textExampleTranslate: string;
+  wordId: string;
+  difficulty: string;
 };
 
 export type TUser = {

@@ -13,8 +13,12 @@ export const BASE_URL = 'https://rslang-guseff.herokuapp.com';
 >>>>>>> c5ff615 (feat: add dictionary page)
 =======
 export const BASE_URL = 'http://127.0.0.1:9000';
+<<<<<<< HEAD
 /*'https://rslang-guseff.herokuapp.com'*/
 >>>>>>> e462692 (feat: add hard words features)
+=======
+/* 'https://rslang-guseff.herokuapp.com' */
+>>>>>>> bebd693 (refactor: apply eslint and change hard words features)
 export const menuLinksData = [
   {
     id: EPageIds.mainPage,

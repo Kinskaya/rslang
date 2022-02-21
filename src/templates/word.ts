@@ -116,7 +116,6 @@ export const word = async (
       createStatusWordWrap(),
     );
     dataWords.append(wordCard);
-
   });
 
   const mainPage = document.getElementById('main');

@@ -39,9 +39,9 @@ class BookPage extends Page {
       const levelLink = document.createElement('a');
       levelLink.classList.add('level-btn');
       if (elem === 7) {
-      levelLink.id = 'hard-words';
-      levelLink.innerHTML = 'Сложные слова';
-    } else {
+        levelLink.id = 'hard-words';
+        levelLink.innerHTML = 'Сложные слова';
+      } else {
         levelLink.id = `${elem}-level`;
         levelLink.innerHTML = String(elem);
       }

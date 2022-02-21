@@ -13,5 +13,5 @@ export const createUser = async (user: {
     },
     body: JSON.stringify(user),
   });
-  const content = await rawResponse.json();
+  return rawResponse.json();
 };
