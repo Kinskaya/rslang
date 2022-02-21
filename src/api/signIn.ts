@@ -1,5 +1,5 @@
-import { state } from '../state/index';
 import { BASE_URL } from '../consts';
+import { renderLogiInfo } from '../authorization/renderLoginInfo';
 
 export const loginUser = async (user: {
   email: string;
@@ -14,10 +14,8 @@ export const loginUser = async (user: {
     body: JSON.stringify(user),
   });
   const content = await rawResponse.json();
-  state.token = content.token;
   localStorage.setItem('token', content.token);
   localStorage.setItem('name', content.name);
   localStorage.setItem('userId', content.userId);
-  state.isAuthorized = true;
-  state.name = content.name;
+  renderLogiInfo();
 };

@@ -2,6 +2,9 @@ import { EPageIds } from '../types';
 
 export const BASE_URL = 'http://127.0.0.1:9000';
 
+//  https://rslang-guseff.herokuapp.com
+//  http://127.0.0.1:9000
+
 export const menuLinksData = [
   {
     id: EPageIds.mainPage,

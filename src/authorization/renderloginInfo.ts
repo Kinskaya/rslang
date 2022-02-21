@@ -1,9 +1,6 @@
-import { authName, logoutButton } from './variables';
-import { state } from '../state';
+import { logoutButton, authName } from './variables';
 
-export const renderloginInfo = (): void => {
-  authName.textContent = state.name;
-  if (state.isAuthorized === true) {
-    logoutButton.style.display = 'block';
-  }
+export const renderLogiInfo = ():void => {
+  logoutButton.style.display = localStorage.getItem('name') ? 'block' : 'none';
+  authName.textContent = localStorage.getItem('name') || '';
 };
