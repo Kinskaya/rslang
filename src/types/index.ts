@@ -2,7 +2,9 @@ export const enum EPageIds {
   mainPage = 'main-page',
   bookPage = 'book-page',
   gamesPage = 'games-page',
+  dictionaryPage = 'dictionary-page',
 }
+
 export type TWord = {
   id: string;
   group: number;
@@ -18,6 +20,8 @@ export type TWord = {
   wordTranslate: string;
   textMeaningTranslate: string;
   textExampleTranslate: string;
+  wordId: string;
+  difficulty: string;
 };
 
 export type TUser = {
@@ -34,6 +38,7 @@ export type TState = {
   id: string;
   isAuthorized: boolean,
   userId:string;
+  hardWords: TWord[],
 };
 
 export type TGameState = {

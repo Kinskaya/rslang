@@ -1,5 +1,6 @@
 import { BASE_URL } from '../consts';
 import { renderLogiInfo } from '../authorization/renderLoginInfo';
+import { state } from '../state/index';
 
 export const loginUser = async (user: {
   email: string;
@@ -18,4 +19,7 @@ export const loginUser = async (user: {
   localStorage.setItem('name', content.name);
   localStorage.setItem('userId', content.userId);
   renderLogiInfo();
+  state.isAuthorized = true;
+  state.name = content.name;
+  state.userId = content.userId;
 };

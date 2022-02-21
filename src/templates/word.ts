@@ -2,6 +2,7 @@ import { BASE_URL } from '../consts';
 import { TWord } from '../types';
 import { getAllWords } from '../api/getAllWords';
 import { state } from '../state';
+import { createStatusWordWrap, markHardWord } from './difficult-words';
 
 export const word = async (
   group?: number,
@@ -112,12 +113,13 @@ export const word = async (
       wordMeaningTranslate,
       blockExample,
       wordExampleTranslate,
+      createStatusWordWrap(),
     );
     dataWords.append(wordCard);
   });
 
   const mainPage = document.getElementById('main');
   mainPage?.replaceChildren(dataWords);
-
+  markHardWord(wordCard.id);
   return dataWords;
 };
