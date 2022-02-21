@@ -38,13 +38,11 @@ export type TState = {
   id: string;
   isAuthorized: boolean,
   userId:string;
+  hardWords: TWord[],
 };
 
 export type TGameState = {
   gameWords: TWord[],
   count: 0,
   result: boolean[],
-  isHard: boolean,
-  hardWords: TWord[],
-  userId: string,
 };
