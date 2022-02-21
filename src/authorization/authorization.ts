@@ -1,5 +1,4 @@
 import { state } from '../state';
-import { authLogin } from './authLogin';
 import openModalAuth from './openModal';
 import { authCreateUser } from './authCreateUser';
 import { closeModal } from './closeModal';
@@ -9,6 +8,7 @@ import {
   authSubmitButton, regSubmitButton, body, logoutButton,
   authLogo, authName, container,
 } from './variables';
+import { loginUser } from '../api/index';
 
 export const logoSrc = './logo.png';
 
@@ -38,13 +38,11 @@ export const authorization = (): HTMLDivElement => {
   authLogo.classList.add('authLogo');
   authName.classList.add('auth-name');
   container.classList.add('auth-container');
-  authName.textContent = localStorage.getItem('name')
-    ? localStorage.getItem('name')
-    : null;
   logoutButton.textContent = 'Выйти';
   body?.insertAdjacentElement('beforeend', container);
   container.append(logoutButton, authName, authLogo);
-  if (!localStorage.getItem('name')) logoutButton.style.display = 'none';
+  logoutButton.style.display = localStorage.getItem('name') ? 'block' : 'none';
+  authName.textContent = localStorage.getItem('name') || '';
   return container;
 };
 
@@ -53,6 +51,13 @@ const logout = ():void => {
   state.name = '';
   localStorage.removeItem('token');
   localStorage.removeItem('name');
+  authorization();
+};
+
+const authLogin = (): void => {
+  const user = { email: authEmailInput.value, password: authPassInput.value };
+  loginUser(user);
+  closeModal();
   authorization();
 };
 

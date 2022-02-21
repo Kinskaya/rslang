@@ -35,3 +35,9 @@ export type TState = {
   isAuthorized: boolean,
   userId:string;
 };
+
+export type TGameState = {
+  gameWords: TWord[],
+  count: 0,
+  result: boolean[],
+};

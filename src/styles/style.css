@@ -509,3 +509,8 @@ p {
   cursor: pointer;
   margin-top: 20px;
 }
+
+.counResult{
+  margin-top: 20px;
+  color: #19b441;
+}

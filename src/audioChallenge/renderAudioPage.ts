@@ -1,3 +1,4 @@
+import { renderResult } from './renderResult';
 import { state, gameState } from '../state/index';
 import { BASE_URL } from '../consts';
 
@@ -38,7 +39,9 @@ export const renderAudioPage = (): void => {
   checkItem2.name = 'optionsCard';
   checkItem2.id = 'checkItem2';
   checkItem2.type = 'radio';
-  checkItemLabel2.textContent = state.gameWords[count + 1].wordTranslate;
+  checkItemLabel2.textContent = count >= 19
+    ? state.gameWords[count - 1].wordTranslate
+    : state.gameWords[count + 1].wordTranslate;
   checkItemLabel2.htmlFor = 'checkItem2';
 
   const checkItem3 = document.createElement('input');
@@ -47,7 +50,9 @@ export const renderAudioPage = (): void => {
   checkItem3.name = 'optionsCard';
   checkItem3.id = 'checkItem3';
   checkItem3.type = 'radio';
-  checkItemLabel3.textContent = state.gameWords[count + 2].wordTranslate;
+  checkItemLabel3.textContent = count >= 18
+    ? state.gameWords[count - 2].wordTranslate
+    : state.gameWords[count + 2].wordTranslate;
   checkItemLabel3.htmlFor = 'checkItem3';
 
   optionsContainer.append(checkItem1, checkItemLabel1, checkItem2, checkItemLabel2, checkItem3, checkItemLabel3);
@@ -59,11 +64,29 @@ export const renderAudioPage = (): void => {
   gameBlock.append(soundImg, soundWord, optionsContainer, gameButtonSubmit);
   gameContainer!.append(gameBlock);
 
+  console.log(state.gameWords[count]);
+
   const nextQuestion = () => {
+    const serchAnswer = [checkItem1, checkItem2, checkItem3];
+    if (checkItem1.checked) {
+      gameState.result.push(true);
+    }
+    if (!checkItem1.checked) {
+      gameState.result.push(false);
+    }
     if (count < 19) {
       count += 1;
-      console.log();
       renderAudioPage();
+    }
+    if (count >= 19) {
+      if (checkItem1.checked) {
+        gameState.result.push(true);
+      }
+      if (!checkItem1.checked) {
+        gameState.result.push(false);
+      }
+      renderResult();
+      count = 0;
     }
   };
 
